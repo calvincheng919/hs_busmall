@@ -58,6 +58,15 @@ nav > ul {
   align-items: center;
 }
 
+.navAlign {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:flex-start;
+  background-color: #444;
+}
+
+
 a:link {
   color: #8bc34a;
   background-color: transparent;
@@ -80,4 +89,8 @@ a:active {
   color: #C34A8B;
   background-color: transparent;
   text-decoration: underline;
+}
+
+ul {
+  line-height: 250%
 }
