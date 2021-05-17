@@ -32,7 +32,9 @@ main > .content {
   align-items: center;
 }
 
-.imgCards {
+/* McCall - this is the container where the images are... so see how i limit the width and height? */
+/* You can also look up how to size images on Google. There are 2-3 other ways to do it */
+.imgCards { 
   height: 250px;
   width: 250px;
   background: lightgray;
