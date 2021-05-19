@@ -1,19 +1,5 @@
 'use strict'
 
-
-
-// The following code lines 10-19 can be generalized 
-img1.addEventListener('click', runFunctionImage1); // explicitly define the function to call
-img2.addEventListener('click', function(){ // call an anonymous function
-  console.log('I am in img2');
-})
-img3.addEventListener('click', function(){
-  console.log('I am in img3');
-})
-function runFunctionImage1() {
-    console.log('I am in img1')
-}
-
 // This is the mini-database to keep track of everything. 
 let PRODUCTS_ARRAY = [
   {HTMLid: 'bag', imgURL: './images/bag.jpg', totalViews: 0, totalVotes: 0},
@@ -38,6 +24,8 @@ let PRODUCTS_ARRAY = [
   {HTMLid: 'wineGlass', imgURL: './images/wine-glass.jpg', totalViews: 0, totalVotes: 0},
 ]
 
+let clicks = 0;
+
 // On startup - display 3 images from the array
 function renderImages() {
   // this funtion will render 3 images from the array
@@ -53,17 +41,43 @@ function renderImages() {
 
   for (let i=0; i <= 2; i++) {
     // let imgContainer = document.getElementById('img' + i + 'Container');
+    // imagine the following code being done i times
     let imgContainer = document.getElementById(`img${i}Container`);
     let img = document.createElement('img');
+    imgContainer.appendChild(img);
     img.setAttribute('src', PRODUCTS_ARRAY[i].imgURL);
+    img.setAttribute('id', PRODUCTS_ARRAY[i].HTMLid);
 
+    //whenever the image is shown, we need to add one to the total view
   }
-
 
 }
 
 // Consolidate all the response functions (callbacks) into one function
-function handleClick() {
+function handleClick(event) {
   // put all the callbacks into one place
+  clicks++;
+  console.log('I was clicked, and my id is: ', event.target.id)
+  let parentId = event.target.id;
+
+  // when the parent container is clicked, how do i know which image it is ???
+  // we have to compare the id's
+  // if then else statement.. compare parentId to image id somehow.. 
+
+
+
 }
+
+(function startApp() {
+
+  for(let i=0; i < 3; i++) {
+    let imgContainer = document.getElementById(`img${i}Container`);
+    imgContainer.addEventListener('click', handleClick);
+  }
+
+  // shuffle the images - later
+  renderImages();
+
+})();
+
 
