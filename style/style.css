@@ -41,6 +41,11 @@ main > .content {
   text-align: center;
 }
 
+.item {
+  height: 100%;
+  width: auto;
+}
+
 
 main > aside {
   order: 3;
